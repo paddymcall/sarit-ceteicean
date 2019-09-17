@@ -1,0 +1,6 @@
+[submodule "SARIT"]
+	path = SARIT
+	url = https://github.com/paddymcall/SARIT.git
+[submodule "CETEIcean"]
+	path = CETEIcean
+	url = https://github.com/paddymcall/CETEIcean.git
