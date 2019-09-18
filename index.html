@@ -5,10 +5,15 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="css/CETEIcean.css" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/grid.css" />
 <script src="js/CETEI.js"></script>
 </head>
 <body>
-<div id="TEI"></div>
+  <div class="grid-container">
+    <div class="item1" id="header-area"></div>
+    <div class="item3" id="TEI"></div>
+    <div class="item4" id="right-margin"></div>
+  </div>
 <script>
   var CETEIcean = new CETEI()
   CETEIcean.addBehaviors({
@@ -30,11 +35,25 @@
 			  a.setAttribute("href", e.getAttribute("ref"));
 			  a.innerHTML = e.innerHTML;
 			  return a;
-		  }
+		  },
+		  "lg": function (e) {
+			  let result = document.createElement("blockquote");
+			  result.setAttribute("class", "verse");
+			  result.innerHTML = e.innerHTML;
+			  return result;
+		  },
+		  "bibl": function (e) {
+			  let a = document.createElement("a");
+			  if (e.getAttribute("corresp")) {
+				  a.setAttribute("href", e.getAttribute("corresp"));
+			  }
+			  a.innerHTML = "Bibl: " + e.innerHTML;
+			  return a;
+		  },
 	  }
   })
   
-  CETEIcean.getHTML5("data/ratnakirti-nibandhavali.xml", function(data) {
+  CETEIcean.getHTML5("SARIT/ratnakirti-nibandhavali.xml", function(data) {
 	  document.getElementById("TEI").appendChild(data)
   })
 </script>
